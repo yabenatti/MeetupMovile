@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol HelloBusinessLogic {
+protocol HelloInteractorInput {
     func doSomething(request: Hello.Something.Request)
 }
 
@@ -20,15 +20,14 @@ protocol HelloDataStore {
     //var name: String { get set }
 }
 
-class HelloInteractor: HelloBusinessLogic, HelloDataStore {
-    var presenter: HelloPresentationLogic?
+class HelloInteractor: HelloInteractorInput, HelloDataStore {
+    var presenter: HelloPresenterInput?
     var worker: HelloWorker?
-    //var name: String = ""
     
     // MARK: Do something
     
     func doSomething(request: Hello.Something.Request) {
-        worker = HelloWorker()
+        worker = HelloWorker(apiClient: APIClient())
         worker?.doSomeWork(successHandler: { [weak self] (firstName, lastName) in
             let response = Hello.Something.Response(firstName: firstName, lastName: lastName)
             self?.presenter?.presentSuccess(response: response)

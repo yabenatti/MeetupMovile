@@ -12,13 +12,13 @@
 
 import UIKit
 
-protocol HelloPresentationLogic {
+protocol HelloPresenterInput {
     func presentSuccess(response: Hello.Something.Response)
     func presentError(errorResponse: Hello.Something.ErrorResponse)
 }
 
-class HelloPresenter: HelloPresentationLogic {
-    weak var viewController: HelloDisplayLogic?
+class HelloPresenter: HelloPresenterInput {
+    weak var viewController: HelloViewControllerInput?
     
     // MARK: Do something
     

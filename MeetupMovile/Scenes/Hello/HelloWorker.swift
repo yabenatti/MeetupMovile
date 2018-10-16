@@ -13,6 +13,12 @@
 import UIKit
 
 class HelloWorker {
+    let apiClient: APIClientProtocol
+    
+    init(apiClient: APIClientProtocol) {
+        self.apiClient = apiClient
+    }
+    
     func doSomeWork(successHandler: @escaping(_ firstName: String, _ lastName: String) -> Void, failureHandler: (_ error: Error?) -> Void) {
     }
 }

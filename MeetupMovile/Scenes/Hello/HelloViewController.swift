@@ -12,13 +12,13 @@
 
 import UIKit
 
-protocol HelloDisplayLogic: class {
+protocol HelloViewControllerInput: class {
     func displaySuccess(viewModel: Hello.Something.ViewModel)
     func displayError(errorResponse: Hello.Something.ErrorResponse)
 }
 
 class HelloViewController: UIViewController {
-    var interactor: HelloBusinessLogic?
+    var interactor: HelloInteractorInput?
     var router: (NSObjectProtocol & HelloRoutingLogic & HelloDataPassing)?
     
     // MARK: Object lifecycle
@@ -76,7 +76,7 @@ class HelloViewController: UIViewController {
     }
 }
 
-extension HelloViewController: HelloDisplayLogic {
+extension HelloViewController: HelloViewControllerInput {
     func displaySuccess(viewModel: Hello.Something.ViewModel) {
         nameTextField.text = viewModel.fullName
     }
