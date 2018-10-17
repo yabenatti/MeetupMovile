@@ -12,6 +12,7 @@
 
 @testable import MeetupMovile
 import XCTest
+import Nimble
 
 class HelloViewControllerTests: XCTestCase {
     // MARK: Subject under test
@@ -64,7 +65,12 @@ class HelloViewControllerTests: XCTestCase {
         loadView()
         
         // Then
+        
+        // XCTest
         XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
+        
+        // Nimble
+        expect(spy.doSomethingCalled).to(beTrue())
     }
     
     func testDisplaySomething() {
@@ -76,6 +82,11 @@ class HelloViewControllerTests: XCTestCase {
         sut.displaySuccess(viewModel: viewModel)
         
         // Then
+        
+        // XCTest
         XCTAssertEqual(sut.nameTextField.text, "Yasmin Benatti", "displaySomething(viewModel:) should update the name text field")
+        
+        // Nimble
+        expect(self.sut.nameTextField.text).to(equal("Yasmin Benatti"))
     }
 }

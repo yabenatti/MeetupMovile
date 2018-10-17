@@ -12,12 +12,14 @@
 
 @testable import MeetupMovile
 import XCTest
+import Nimble
 
 class HelloInteractorTests: XCTestCase {
     // MARK: Subject under test
     
     var sut: HelloInteractor!
-    
+    var apiClient: APIClientMock!
+
     // MARK: Test lifecycle
     
     override func setUp() {
@@ -32,7 +34,8 @@ class HelloInteractorTests: XCTestCase {
     // MARK: Test setup
     
     func setupHelloInteractor() {
-        sut = HelloInteractor(apiClient: APIClientMock())
+        apiClient = APIClientMock()
+        sut = HelloInteractor(apiClient: apiClient)
     }
     
     // MARK: Test doubles
@@ -60,9 +63,11 @@ class HelloInteractorTests: XCTestCase {
         let request = Hello.Something.Request()
         
         // When
-        sut.doSomething(request: request)
+        self.sut.doSomething(request: request)
         
         // Then
-        XCTAssertTrue(spy.presentSuccessCalled, "doSomething(request:) should ask the presenter to format the result")
+        
+        // Nimble
+        expect(spy.presentSuccessCalled).toEventually(beTrue())
     }
 }

@@ -10,13 +10,17 @@ import Foundation
 @testable import MeetupMovile
 
 final class APIClientMock: APIClientProtocol {
+    
+    
     var requestWasCalled = false
     var addHeaderWasCalled = false
     var removeHeaderWasCalled = false
     var handleErrorWasCalled = false
     
-    func request() {
+    
+    func request(onSuccess: () -> Void, onFailure: () -> Void) {
         requestWasCalled = true
+        onSuccess()
     }
     
     func addHeader() {

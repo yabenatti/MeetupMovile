@@ -9,7 +9,7 @@
 import Foundation
 
 protocol APIClientProtocol {
-    func request()
+    func request(onSuccess: () -> Void, onFailure: () -> Void)
     func addHeader()
     func removeHeader()
     func handleError(error: Error?)

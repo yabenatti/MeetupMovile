@@ -12,35 +12,36 @@
 
 @testable import MeetupMovile
 import XCTest
+import Nimble
 
 class HelloPresenterTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HelloPresenter!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupHelloPresenter()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHelloPresenter() {
-    sut = HelloPresenter()
-  }
-  
-  // MARK: Test doubles
-  
+    // MARK: Subject under test
+    
+    var sut: HelloPresenter!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp() {
+        super.setUp()
+        setupHelloPresenter()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupHelloPresenter() {
+        sut = HelloPresenter()
+    }
+    
+    // MARK: Test doubles
+    
     class HelloViewControllerInputSpy: HelloViewControllerInput {
         var displaySuccessCalled = false
         var displayErrorCalled = false
-
+        
         func displaySuccess(viewModel: Hello.Something.ViewModel) {
             displaySuccessCalled = true
         }
@@ -48,20 +49,22 @@ class HelloPresenterTests: XCTestCase {
         func displayError(errorResponse: Hello.Something.ErrorResponse) {
             displayErrorCalled = true
         }
-  }
-  
-  // MARK: Tests
-  
-  func testPresentSomething() {
-    // Given
-    let spy = HelloViewControllerInputSpy()
-    sut.viewController = spy
-    let response = Hello.Something.Response(firstName: "Yasmin", lastName: "Benatti")
+    }
     
-    // When
-    sut.presentSuccess(response: response)
+    // MARK: Tests
     
-    // Then
-    XCTAssertTrue(spy.displaySuccessCalled, "presentSomething(response:) should ask the view controller to display the result")
-  }
+    func testPresentSomething() {
+        // Given
+        let spy = HelloViewControllerInputSpy()
+        sut.viewController = spy
+        let response = Hello.Something.Response(firstName: "Yasmin", lastName: "Benatti")
+        
+        // When
+        sut.presentSuccess(response: response)
+        
+        // Then
+        
+        // Nimble
+        expect(spy.displaySuccessCalled).to(beTrue())
+    }
 }

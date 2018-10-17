@@ -12,36 +12,45 @@
 
 @testable import MeetupMovile
 import XCTest
+import Nimble
 
 class HelloWorkerTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HelloWorker!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupHelloWorker()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHelloWorker() {
-    sut = HelloWorker(apiClient: APIClientMock())
-  }
+    // MARK: Subject under test
     
-  // MARK: Tests
-  
-  func testSomething() {
-    // Given
+    var sut: HelloWorker!
+    var apiClient: APIClientMock!
     
-    // When
+    // MARK: Test lifecycle
     
-    // Then
-  }
+    override func setUp() {
+        super.setUp()
+        setupHelloWorker()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupHelloWorker() {
+        apiClient = APIClientMock()
+        sut = HelloWorker(apiClient: apiClient)
+    }
+    
+    // MARK: Tests
+    
+    func testSomething() {
+        // Given
+        
+        // When
+
+        waitUntil(timeout: 5) { (done) in
+            self.sut.doSomeWork(successHandler: { (firstName, lastName) in
+                // Then
+                expect(self.apiClient.requestWasCalled).to(beTrue())
+                done()
+            }) { (error) in }
+        }
+    }
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 final class APIClient: APIClientProtocol {
-    func request() {
-        // Code
+    func request(onSuccess: () -> Void, onFailure: () -> Void) {
+        onSuccess()
     }
     
     func addHeader() {

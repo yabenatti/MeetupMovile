@@ -1,16 +1,20 @@
 PODS:
   - Cartography (3.1.0)
+  - Nimble (7.3.0)
 
 DEPENDENCIES:
   - Cartography (~> 3.0)
+  - Nimble (= 7.3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Cartography
+    - Nimble
 
 SPEC CHECKSUMS:
   Cartography: 1988b7578871a56c036e7af17195cb2190edf18c
+  Nimble: c8d6a1f463701921c46de965c673e13cafa09196
 
-PODFILE CHECKSUM: 5d949b0dcdb01bcf796f841bb6c7b549ffaadb7d
+PODFILE CHECKSUM: fa3a00476adc2f31fb1c66bd74f7a59e115554de
 
 COCOAPODS: 1.5.3

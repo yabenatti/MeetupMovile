@@ -7,6 +7,7 @@ target 'MeetupMovile' do
 
   # Pods for MeetupMovile
     pod 'Cartography', '~> 3.0'
+    pod 'Nimble', '7.3.0'
 
   target 'MeetupMovileTests' do
     inherit! :search_paths
