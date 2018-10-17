@@ -11,13 +11,13 @@ This is the project used as the support material for my short note. The app goes
 
 ## Getting Started
 
-Clone the repo to your machine, run **pod install** on the terminal, open the MeetupMovile.xcworkspace file. Choose a simulator and hit the play button on XCode or use the shortcut ⌘ + R
+Clone the repo to your machine, run **pod install** on the terminal, open the MeetupMovile.xcworkspace file. Choose a simulator and hit the play button on Xcode or use the shortcut ⌘ + R
 
 ### Prerequisites
 
-You'll need the terminal to access the git repo and XCode 10 or later 
+You'll need the terminal to access the git repo and Xcode 10 or later 
 
-* [XCode Download](https://developer.apple.com/download) - Download it from here
+* [Xcode Download](https://developer.apple.com/download) - Download it from here
 
 * [Cocoapods](https://cocoapods.org/) - See how to use it here
 
