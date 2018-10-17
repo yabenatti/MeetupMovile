@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Cartography
 
 protocol HelloViewControllerInput: class {
     func displaySuccess(viewModel: Hello.Something.ViewModel)
@@ -21,6 +22,7 @@ class HelloViewController: UIViewController {
     // MARK: - IBOutlets
     var nameTextField: UITextField = {
         let textField = UITextField()
+        textField.textAlignment = .center
         return textField
     }()
     
@@ -56,6 +58,16 @@ class HelloViewController: UIViewController {
         router.dataStore = interactor
     }
     
+    private func setupTextField() {
+        self.view.addSubview(nameTextField)
+        constrain(nameTextField, self.view) { (name, superview) in
+            name.centerY == superview.centerY
+            name.centerX == superview.centerX
+            name.leading == superview.leading + 16
+            name.trailing == superview.trailing - 16
+        }
+    }
+    
     // MARK: Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,6 +83,7 @@ class HelloViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextField()
         doSomething()
     }
     

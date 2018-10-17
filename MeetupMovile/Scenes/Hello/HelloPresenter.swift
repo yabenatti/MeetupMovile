@@ -22,8 +22,14 @@ class HelloPresenter: HelloPresenterInput {
     
     // MARK: Do something
     
+    func joinNamesAndCapitalizeIt(firstName: String, lastName: String) -> String {
+        let fullName: String = firstName + " " + lastName
+        return fullName.capitalized
+    }
+    
     func presentSuccess(response: Hello.Something.Response) {
-        let viewModel = Hello.Something.ViewModel(fullName: response.firstName + response.lastName)
+        let fullName = joinNamesAndCapitalizeIt(firstName: response.firstName, lastName: response.lastName)
+        let viewModel = Hello.Something.ViewModel(fullName: fullName)
         viewController?.displaySuccess(viewModel: viewModel)
     }
     

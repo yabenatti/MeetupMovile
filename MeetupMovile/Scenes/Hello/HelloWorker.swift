@@ -21,7 +21,7 @@ class HelloWorker {
     
     func doSomeWork(successHandler: @escaping(_ firstName: String, _ lastName: String) -> Void, failureHandler: (_ error: Error?) -> Void) {
         apiClient.request(onSuccess: {
-            successHandler("Yasmin", "Benatti")
+            successHandler("yasmin", "benatti")
         }) {
             failureHandler(nil)
         }

@@ -67,4 +67,16 @@ class HelloPresenterTests: XCTestCase {
         // Nimble
         expect(spy.displaySuccessCalled).to(beTrue())
     }
+    
+    func testJoinNamesAndCapitalize() {
+        // Given
+        let firstName = "yasmin"
+        let lastName = "benatti"
+        
+        // When
+        let fullName = sut.joinNamesAndCapitalizeIt(firstName: firstName, lastName: lastName)
+        
+        // Then
+        expect(fullName).to(equal("Yasmin Benatti"))
+    }
 }
