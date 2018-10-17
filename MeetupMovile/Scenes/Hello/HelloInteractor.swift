@@ -23,11 +23,16 @@ protocol HelloDataStore {
 class HelloInteractor: HelloInteractorInput, HelloDataStore {
     var presenter: HelloPresenterInput?
     var worker: HelloWorker?
+    let apiClient: APIClientProtocol
+    
+    init(apiClient: APIClientProtocol) {
+        self.apiClient = apiClient
+    }
     
     // MARK: Do something
     
     func doSomething(request: Hello.Something.Request) {
-        worker = HelloWorker(apiClient: APIClient())
+        worker = HelloWorker(apiClient: apiClient)
         worker?.doSomeWork(successHandler: { [weak self] (firstName, lastName) in
             let response = Hello.Something.Response(firstName: firstName, lastName: lastName)
             self?.presenter?.presentSuccess(response: response)

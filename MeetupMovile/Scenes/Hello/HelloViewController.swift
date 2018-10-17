@@ -18,6 +18,14 @@ protocol HelloViewControllerInput: class {
 }
 
 class HelloViewController: UIViewController {
+    // MARK: - IBOutlets
+    var nameTextField: UITextField = {
+        let textField = UITextField()
+        return textField
+    }()
+    
+    // MARK: - Variables
+    
     var interactor: HelloInteractorInput?
     var router: (NSObjectProtocol & HelloRoutingLogic & HelloDataPassing)?
     
@@ -37,7 +45,7 @@ class HelloViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = HelloInteractor()
+        let interactor = HelloInteractor(apiClient: APIClient())
         let presenter = HelloPresenter()
         let router = HelloRouter()
         viewController.interactor = interactor
@@ -67,8 +75,6 @@ class HelloViewController: UIViewController {
     }
     
     // MARK: Do something
-    
-    @IBOutlet weak var nameTextField: UITextField!
     
     func doSomething() {
         let request = Hello.Something.Request()

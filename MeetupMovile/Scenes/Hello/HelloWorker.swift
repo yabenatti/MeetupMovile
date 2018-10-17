@@ -20,5 +20,6 @@ class HelloWorker {
     }
     
     func doSomeWork(successHandler: @escaping(_ firstName: String, _ lastName: String) -> Void, failureHandler: (_ error: Error?) -> Void) {
+        successHandler("Yasmin", "Benatti")
     }
 }

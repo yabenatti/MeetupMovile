@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0E06A7A32176AFAF00562288 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7A22176AFAF00562288 /* APIClientProtocol.swift */; };
 		0E06A7A52176AFB700562288 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7A42176AFB700562288 /* APIClient.swift */; };
+		0E06A7B42176B29100562288 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7B32176B29100562288 /* APIClientMock.swift */; };
+		0E06A7B92176B36A00562288 /* HelloViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7B52176B36A00562288 /* HelloViewControllerTests.swift */; };
+		0E06A7BA2176B36A00562288 /* HelloInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7B62176B36A00562288 /* HelloInteractorTests.swift */; };
+		0E06A7BB2176B36A00562288 /* HelloWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7B72176B36A00562288 /* HelloWorkerTests.swift */; };
+		0E06A7BC2176B36A00562288 /* HelloPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06A7B82176B36A00562288 /* HelloPresenterTests.swift */; };
 		18A5B1CB81920024725F37CA /* Pods_MeetupMovileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB0FB36E9D8B6EF86182B86 /* Pods_MeetupMovileTests.framework */; };
 		ACD6A3912D01090D0B72FFF2 /* Pods_MeetupMovile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E39F56F9E20D57C6B0CC2A4 /* Pods_MeetupMovile.framework */; };
 		E43700A32175588B00BEA5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43700A22175588B00BEA5C1 /* AppDelegate.swift */; };
@@ -39,6 +44,11 @@
 		00428306ACBA7EE0C3DEEA14 /* Pods-MeetupMovile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupMovile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupMovile/Pods-MeetupMovile.debug.xcconfig"; sourceTree = "<group>"; };
 		0E06A7A22176AFAF00562288 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
 		0E06A7A42176AFB700562288 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0E06A7B32176B29100562288 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
+		0E06A7B52176B36A00562288 /* HelloViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewControllerTests.swift; sourceTree = "<group>"; };
+		0E06A7B62176B36A00562288 /* HelloInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloInteractorTests.swift; sourceTree = "<group>"; };
+		0E06A7B72176B36A00562288 /* HelloWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorkerTests.swift; sourceTree = "<group>"; };
+		0E06A7B82176B36A00562288 /* HelloPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloPresenterTests.swift; sourceTree = "<group>"; };
 		4E39F56F9E20D57C6B0CC2A4 /* Pods_MeetupMovile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetupMovile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB0FB36E9D8B6EF86182B86 /* Pods_MeetupMovileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetupMovileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B3D1CC6D775EB96D752CF8 /* Pods-MeetupMovileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetupMovileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetupMovileTests/Pods-MeetupMovileTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +99,33 @@
 				0E06A7A42176AFB700562288 /* APIClient.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0E06A7A62176B26700562288 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0E06A7A72176B26E00562288 /* Hello */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0E06A7A72176B26E00562288 /* Hello */ = {
+			isa = PBXGroup;
+			children = (
+				0E06A7B52176B36A00562288 /* HelloViewControllerTests.swift */,
+				0E06A7B62176B36A00562288 /* HelloInteractorTests.swift */,
+				0E06A7B72176B36A00562288 /* HelloWorkerTests.swift */,
+				0E06A7B82176B36A00562288 /* HelloPresenterTests.swift */,
+			);
+			path = Hello;
+			sourceTree = "<group>";
+		};
+		0E06A7B22176B28300562288 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0E06A7B32176B29100562288 /* APIClientMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		7EC38B59064506FDC0CE7BC3 /* Pods */ = {
@@ -149,6 +186,8 @@
 		E43700B62175588C00BEA5C1 /* MeetupMovileTests */ = {
 			isa = PBXGroup;
 			children = (
+				0E06A7B22176B28300562288 /* Mocks */,
+				0E06A7A62176B26700562288 /* Scenes */,
 				E43700B72175588C00BEA5C1 /* MeetupMovileTests.swift */,
 				E43700B92175588C00BEA5C1 /* Info.plist */,
 			);
@@ -366,7 +405,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E06A7B92176B36A00562288 /* HelloViewControllerTests.swift in Sources */,
+				0E06A7BC2176B36A00562288 /* HelloPresenterTests.swift in Sources */,
 				E43700B82175588C00BEA5C1 /* MeetupMovileTests.swift in Sources */,
+				0E06A7B42176B29100562288 /* APIClientMock.swift in Sources */,
+				0E06A7BA2176B36A00562288 /* HelloInteractorTests.swift in Sources */,
+				0E06A7BB2176B36A00562288 /* HelloWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
